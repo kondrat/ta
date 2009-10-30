@@ -3,12 +3,18 @@ class ProjectsController extends AppController {
 
 	var $name = 'Projects';
 	var $helpers = array('Html', 'Form');
-
+//--------------------------------------------------------------------	
+	function beforeFilter() {
+        $this->Auth->allow( 'index','add');
+        parent::beforeFilter();
+        $this->Auth->autoRedirect = false;
+    }
+//--------------------------------------------------------------------
 	function index() {
 		$this->Project->recursive = 0;
 		$this->set('projects', $this->paginate());
 	}
-
+//--------------------------------------------------------------------
 	function view($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid Project.', true));

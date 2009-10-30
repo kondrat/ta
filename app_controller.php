@@ -3,8 +3,8 @@ class AppController extends Controller {
 	var $components      = array( 'Acl', 'Auth', 'RequestHandler', 'Email', 'Cookie');
     var $helpers         = array('Javascript', 'Html', 'Form', 'Menu', 'Tree');
     var $publicControllers = array('pages', 'test');
-   	var $uses = array();
-   	var $subheaderTitle = 'Hor pol';
+
+
 //--------------------------------------------------------------------
 	function beforeFilter() {
         if( isset($this->Auth) ) {
